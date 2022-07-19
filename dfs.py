@@ -39,10 +39,20 @@ def in_order(root: Tree, order=[]):
     return order
 
 
-def post_order(root: Tree):
+def post_order(root: Tree, order=[]):
     """
     Searches through the tree and returns the post-order
     :param root: Tree to be searched
     :return: Post-order of the tree
     """
-    return None
+    if root is None:
+        return order
+    elif root.left is None and root.right is None:
+        order.append(root.val)
+        return order
+    else:
+        order = post_order(root.left, order)
+        order = post_order(root.right, order)
+        order.append(root.val)
+
+    return order
