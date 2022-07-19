@@ -15,20 +15,28 @@ def pre_order(root: Tree, order=[]):
     if root.left is None and root.right is None:
         return order
     else:
-        if root.left is not None:
-            order = pre_order(root.left, order)
-        if root.right is not None:
-            order = pre_order(root.right, order)
+        order = pre_order(root.left, order)
+        order = pre_order(root.right, order)
     return order
 
 
-def in_order(root: Tree):
+def in_order(root: Tree, order=[]):
     """
     Searches through the tree and returns the in-order
     :param root: Tree to be searched
     :return: In-order of the tree
     """
-    return None
+    if root is None:
+        return order
+
+    if root.left is None and root.right is None:
+        order.append(root.val)
+        return order
+    else:
+        order = in_order(root.left, order)
+        order.append(root.val)
+        order = in_order(root.right, order)
+    return order
 
 
 def post_order(root: Tree):

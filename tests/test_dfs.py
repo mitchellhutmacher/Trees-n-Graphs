@@ -31,6 +31,18 @@ class TestDfs(unittest.TestCase):
         expected = []
         self.assertEqual(dfs_arr, expected)
 
+    def test_in_order_std(self):
+        root = make_basic_tree()
+        dfs_arr = dfs.in_order(root, [])
+        expected = [1, 2, 3, 4, 5, 6, 7]
+        self.assertEqual(dfs_arr, expected)
+
+    def test_in_order_none(self):
+        root = None
+        dfs_arr = dfs.in_order(root, [])
+        expected = []
+        self.assertEqual(dfs_arr, expected)
+
 
 if __name__ == "__main__":
     unittest.main()
