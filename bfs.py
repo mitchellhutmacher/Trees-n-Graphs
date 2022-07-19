@@ -5,8 +5,8 @@ from .Tree import Tree
 def bfs_queue(root: Tree):
     """
 
-    :param root: Root node of the tree to be printed in BFS
-    :return:
+    :param root: Root node of the tree
+    :return: Array of level order traversal of the tree
     """
     if root is None:
         return []
